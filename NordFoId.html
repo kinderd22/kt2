@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>NordFold — предметы для спокойного дома</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#ffffff;
+  --text:#1a1a1a;
+  --muted:#7d7d7d;
+  --accent:#b8a48a;
+  --card:#f4f2ef;
+  --border:#e3ded8;
+  --radius:16px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:Manrope, sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
+.container{
+  max-width:1100px;
+  margin:0 auto;
+  padding:0 20px;
+}
+header{
+  padding:22px 0;
+  border-bottom:1px solid var(--border);
+}
+.header-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.logo{
+  font-size:26px;
+  font-weight:700;
+  letter-spacing:0.05em;
+}
+.header-controls{
+  display:flex;
+  align-items:center;
+  gap:20px;
+}
+.btn{
+  padding:10px 18px;
+  border-radius:999px;
+  border:1px solid var(--border);
+  background:#fff;
+  cursor:pointer;
+  font-size:14px;
+  font-weight:600;
+}
+.cart{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.cart-count{
+  padding:6px 12px;
+  background:var(--card);
+  border-radius:999px;
+}
+.hero{
+  padding:60px 0;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:40px;
+}
+.hero-text{
+  max-width:480px;
+}
+.hero-title{
+  font-size:40px;
+  font-weight:700;
+  margin-bottom:14px;
+}
+.hero-desc{
+  font-size:16px;
+  color:var(--muted);
+  margin-bottom:20px;
+}
+.hero-actions{
+  display:flex;
+  gap:12px;
+}
+.btn-primary{
+  background:var(--accent);
+  border:none;
+  color:#fff;
+}
+.hero-img{
+  width:360px;
+  height:260px;
+  border-radius:var(--radius);
+  background:var(--card);
+}
+.slider-section{
+  padding:40px 0;
+}
+.section-title{
+  font-size:26px;
+  font-weight:700;
+  margin-bottom:20px;
+}
+.slider{
+  position:relative;
+  overflow:hidden;
+  background:var(--card);
+  padding:20px;
+  border-radius:var(--radius);
+}
+.slides{
+  display:flex;
+  gap:20px;
+  transition:transform .4s ease;
+}
+.slide{
+  min-width:260px;
+  background:#fff;
+  border-radius:var(--radius);
+  padding:16px;
+  text-align:center;
+}
+.slide img{
+  width:100%;
+  height:150px;
+  object-fit:cover;
+  border-radius:var(--radius);
+  margin-bottom:10px;
+}
+.slide p{
+  font-size:14px;
+  color:var(--muted);
+}
+.prev,.next{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  background:#fff;
+  border:1px solid var(--border);
+  padding:8px 12px;
+  border-radius:999px;
+  cursor:pointer;
+}
+.prev{left:10px}
+.next{right:10px}
+.dots{
+  display:flex;
+  justify-content:center;
+  gap:8px;
+  margin-top:12px;
+}
+.dot{
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  background:#cfc9c2;
+  cursor:pointer;
+}
+.dot.active{
+  background:var(--accent);
+}
+.products{
+  padding:40px 0;
+}
+.products-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:20px;
+}
+.product{
+  background:var(--card);
+  border-radius:var(--radius);
+  padding:16px;
+}
+.product h3{
+  font-size:18px;
+  margin-bottom:6px;
+}
+.product p{
+  font-size:14px;
+  color:var(--muted);
+  margin-bottom:10px;
+}
+.price{
+  font-weight:700;
+  margin-bottom:10px;
+}
+.product-buttons{
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+.item-count{
+  font-weight:700;
+}
+.extra{
+  padding:40px 0;
+  text-align:center;
+}
+.suggest-text{
+  margin-top:10px;
+  font-weight:600;
+  color:var(--muted);
+}
+.form-section{
+  padding:40px 0;
+}
+.form{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+}
+.form label{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  font-size:14px;
+}
+input,textarea,select{
+  padding:12px;
+  border-radius:var(--radius);
+  border:1px solid var(--border);
+  background:#fff;
+}
+textarea{
+  height:80px;
+  resize:none;
+}
+.form button{
+  grid-column:1 / -1;
+}
+footer{
+  padding:20px 0;
+  border-top:1px solid var(--border);
+  text-align:center;
+  font-size:14px;
+  color:var(--muted);
+}
+.dark-theme{
+  --bg:#1a1a1a;
+  --text:#f5f5f5;
+  --muted:#b8b8b8;
+  --card:#2a2a2a;
+  --border:#3a3a3a;
+  --accent:#d0b89a;
+}
+</style>
+</head>
+
+<body class="light-theme">
+
+<header>
+  <div class="container header-row">
+    <div class="logo">NordFold</div>
+    <div class="header-controls">
+      <button id="theme-toggle" class="btn">Тёмная тема</button>
+      <div class="cart">
+        <span>Корзина</span>
+        <span id="cart-count" class="cart-count">0</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero container">
+    <div class="hero-text">
+      <h1 class="hero-title">Тёплые вещи для спокойного дома</h1>
+      <p class="hero-desc">Минималистичные предметы, которые создают атмосферу уюта и мягкого света.</p>
+      <div class="hero-actions">
+        <button id="more-btn" class="btn btn-primary">Подробнее</button>
+        <button class="btn" onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})">Каталог</button>
+      </div>
+    </div>
+    <div class="hero-img"></div>
+  </section>
+
+  <section class="slider-section container">
+    <h2 class="section-title">Категории</h2>
+    <div class="slider" id="category-slider">
+      <div class="slides">
+        <div class="slide">
+          <img src="https://i.imgur.com/8bKQK8B.jpeg">
+          <p>Ароматы и свечи</p>
+        </div>
+        <div class="slide">
+          <img src="https://i.imgur.com/7kZq8yU.jpeg">
+          <p>Текстиль и пледы</p>
+        </div>
+        <div class="slide">
+          <img src="https://i.imgur.com/6p2j5mC.jpeg">
+          <p>Декор и аксессуары</p>
+        </div>
+      </div>
+      <button class="prev">‹</button>
+      <button class="next">›</button>
+      <div class="dots">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+    </div>
+  </section>
+
+  <section id="shop" class="products container">
+    <h2 class="section-title">Коллекция</h2>
+    <div class="products-grid">
+
+      <div class="product" data-id="p1">
+        <h3>Свеча “Warm Sand”</h3>
+        <p>Тёплый аромат ванили и дерева.</p>
+        <p class="price">1290 ₽</p>
+        <div class="product-buttons">
+          <button class="btn add-btn">В корзину</button>
+          <button class="btn remove-btn">−</button>
+          <span class="item-count">0</span>
+        </div>
+      </div>
+
+      <div class="product" data-id="p2">
+        <h3>Плед “Soft Beige”</h3>
+        <p>Мягкий, лёгкий, уютный.</p>
+        <p class="price">2490 ₽</p>
+        <div class="product-buttons">
+          <button class="btn add-btn">В корзину</button>
+          <button class="btn remove-btn">−</button>
+          <span class="item-count">0</span>
+        </div>
+      </div>
+
+      <div class="product" data-id="p3">
+        <h3>Ваза “Nordic”</h3>
+        <p>Матовая керамика.</p>
+        <p class="price">1890 ₽</p>
+        <div class="product-buttons">
+          <button class="btn add-btn">В корзину</button>
+          <button class="btn remove-btn">−</button>
+          <span class="item-count">0</span>
+        </div>
+      </div>
+
+      <div class="product" data-id="p4">
+        <h3>Диффузор “Calm Air”</h3>
+        <p>Свежий аромат хлопка.</p>
+        <p class="price">1590 ₽</p>
+        <div class="product-buttons">
+          <button class="btn add-btn">В корзину</button>
+          <button class="btn remove-btn">−</button>
+          <span class="item-count">0</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="extra container">
+    <h2 class="section-title">Подбор</h2>
+    <p>Нажмите, чтобы получить рекомендацию.</p>
+    <button id="suggest-btn" class="btn btn-primary">Подобрать</button>
+    <p id="suggest-text" class="suggest-text"></p>
+  </section>
+
+  <section class="form-section container">
+    <h2 class="section-title">Оставьте заявку</h2>
+    <form class="form" id="lead-form">
+      <label>Ваше имя
+        <input type="text" name="name">
+      </label>
+      <label>Email
+        <input type="email" name="email">
+      </label>
+      <label>Город
+        <input type="text" name="city">
+      </label>
+      <label>Комната
+        <select name="room">
+          <option value="">Выберите</option>
+          <option>Кухня</option>
+          <option>Гостиная</option>
+          <option>Спальня</option>
+        </select>
+      </label>
+      <label>Комментарий
+        <textarea name="message"></textarea>
+      </label>
+      <button class="btn btn-primary">Отправить</button>
+    </form>
+  </section>
+
+</main>
+
+<footer>
+  <p>NordFold © 2026</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
